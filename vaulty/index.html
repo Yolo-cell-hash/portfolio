@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaulty — case study · Jay Keer</title>
+<meta name="description" content="How Jay Keer is building Vaulty: an encrypted, offline memory for the facts you forget and the documents that expire — coming soon to Google Play and the App Store.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;600&family=DM+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../assets/bento.css">
+<script src="../assets/bento.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="pillnav">
+  <div class="pillnav__bar">
+    <a class="mark" href="../" aria-label="Jay Keer, home"><span>JK</span><span>Jay Keer</span></a>
+    <nav class="pillnav__links" aria-label="Primary">
+      <a href="#different">What's different</a><a href="#design">Design</a><a href="#process">How I build</a><a href="../budgetify/">Budgetify</a>
+    </nav>
+    <div class="pillnav__end">
+      <a class="btn btn--accent" href="../#contact">Let's talk</a>
+      <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="sheet" id="sheet" aria-label="Mobile">
+    <a href="../">Home <span>←</span></a><a href="#different">What's different <span>01</span></a><a href="#design">Design <span>02</span></a><a href="#process">How I build <span>03</span></a><a href="../budgetify/">Budgetify <span>→</span></a>
+  </nav>
+</header>
+
+<main class="wrap" id="main">
+  <section class="cs-hero" aria-label="Overview">
+    <article class="tile cs-title dotgrid">
+      <a class="back" href="../#products"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>All work</a>
+      <div>
+        <p class="label">Case study · 02 · Personal memory</p>
+        <h1>Vaulty</h1>
+        <p class="sub">A 100% offline external brain and expiry engine. It remembers the little facts you forget, and warns you before the important things lapse.</p>
+      </div>
+      <div class="tags"><span class="tag">Flutter</span><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">SQLCipher</span><span class="tag">ML Kit</span><span class="tag">Riverpod</span></div>
+    </article>
+    <article class="tile cs-side">
+      <p class="status status--soon"><i></i>Coming soon · Google Play &amp; App Store</p>
+      <div class="launch"><b>AES<small>-256</small></b><span>encryption for the vault, photos and backups</span></div>
+      <div class="launch"><b>0</b><span>accounts, servers or analytics</span></div>
+    </article>
+    <article class="tile cs-side">
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Solo — product, design, code</dd></div>
+        <div><dt>Started</dt><dd>September 2026</dd></div>
+        <div><dt>Platforms</dt><dd>iOS &amp; Android</dd></div>
+        <div><dt>Code</dt><dd><a href="https://github.com/Yolo-cell-hash/vaulty" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:4px">GitHub ↗</a></dd></div>
+      </dl>
+    </article>
+    <div class="tile cs-art cs-art--v" aria-hidden="true">
+      <div class="phone phone--v side">
+        <span class="eyebrow">CAPTURE</span>
+        <span class="serif">Just <em>say it.</em></span>
+        <div class="up" style="display:block;font-size:10px;line-height:1.45">Car insurance expires Nov 12, Policy #9812</div>
+        <div class="item">Title <i>Car insurance</i></div>
+        <div class="item">Expires <i>12 Nov</i></div>
+        <div class="item">Details <i>Policy #9812</i></div>
+      </div>
+      <div class="phone phone--v mid">
+        <span class="eyebrow">UP NEXT</span>
+        <span class="serif">Your <em>radar</em></span>
+        <div class="up"><b>12</b><span>days<br>Car insurance</span></div>
+        <div class="item">Passport <i>42 days</i></div>
+        <div class="item">Netflix <i class="warn">in 3 days</i></div>
+        <div class="item">Mom's birthday <i>turns 58</i></div>
+        <div class="nav"><span></span><span></span><span></span><b>+</b></div>
+      </div>
+      <div class="phone phone--v dark side">
+        <span class="eyebrow">ASK YOUR VAULT</span>
+        <span class="serif">Ask <em>anything.</em></span>
+        <div class="card-dark">Mom's shoe size<i>UK 5</i></div>
+        <div class="card-dark">Wi-Fi code<div class="blur"></div></div>
+        <div class="card-dark">Paint, living room<i>Shade 8742</i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tile quote">
+      <p>Shoe sizes, Wi-Fi codes, the day the passport lapses. Notes apps <em>bury</em> these facts, and reminder apps don't know what they are.</p>
+      <p class="label">The problem</p>
+    </div>
+  </section>
+
+  <section class="section" id="different">
+    <div class="section-head">
+      <div><p class="label">01 · What makes it different</p><h2>Smart about your data. Blind to it, too.</h2></div>
+      <p class="aside">Everything clever in Vaulty happens on the phone, so it can understand your life without ever seeing it.</p>
+    </div>
+    <div class="why">
+      <article class="tile wide">
+        <span class="n">01</span>
+        <h3>Capture that understands you</h3>
+        <p>Type naturally — “Car insurance expires Nov 12, Policy #9812” — and an on-device parser pulls out the title, category, expiry date and details. “Mom's shoe size” links itself to Mom, and <b>#car</b> becomes a tag.</p>
+      </article>
+      <article class="tile">
+        <span class="n">02</span>
+        <h3>Or just snap it</h3>
+        <p>On-device text recognition reads a document, card or label. The photo is encrypted and never uploaded.</p>
+      </article>
+      <article class="tile">
+        <span class="n">03</span>
+        <h3>An Expiry Radar</h3>
+        <p>A grid and a list sorted by urgency, with countdowns. Colour stays neutral until it needs you: amber when soon, red when overdue.</p>
+      </article>
+      <article class="tile">
+        <span class="n">04</span>
+        <h3>Dates that repeat properly</h3>
+        <p>Birthdays and subscriptions count down to the next one and never show as “expired”. “Renewed it” resets a passport or policy in one tap.</p>
+      </article>
+      <article class="tile">
+        <span class="n">05</span>
+        <h3>Ask your vault</h3>
+        <p>Natural-language search, backed by a full-text index inside the encrypted database.</p>
+      </article>
+      <article class="tile wide">
+        <span class="n">06</span>
+        <h3>Zero-trust by default</h3>
+        <p>An SQLCipher AES-256 database and AES-GCM photos, with keys held in the iOS Keychain or Android Keystore. Face ID or fingerprint lock, sensitive items blurred until you verify, a privacy cover in the app switcher, and an auto-lock after 20 seconds. Backups are sealed with your passphrase, and release builds don't request internet access at all.</p>
+      </article>
+      <article class="tile">
+        <span class="n">07</span>
+        <h3>Reminders that keep secrets</h3>
+        <p>Scheduled locally. A notification says what's due and when, never the details stored inside it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="design">
+    <div class="section-head">
+      <div><p class="label">02 · Design system</p><h2>“Editorial Vault.”</h2></div>
+      <p class="aside">Premium and calm by default, with a hint of Gen Z in a few deliberate places. I wrote the system before drawing a single screen.</p>
+    </div>
+    <div class="system">
+      <article class="tile">
+        <p class="label">Paper, ink, one violet, a little lime</p>
+        <div class="swatches">
+          <div><i style="background:#F6F4EF"></i><b>Paper</b><span>#F6F4EF</span></div>
+          <div><i style="background:#151419"></i><b>Ink</b><span>#151419</span></div>
+          <div><i style="background:#5B44F2"></i><b>Violet</b><span>#5B44F2</span></div>
+          <div><i style="background:#D4F54A"></i><b>Lime</b><span>#D4F54A</span></div>
+        </div>
+        <div class="type-sample">
+          <p class="serif">Ask <em>anything.</em></p>
+          <p>Instrument Serif for display, Instrument Sans for UI, and DM Mono for anything you'd copy: <code>UK 5</code> <code>#9812</code></p>
+        </div>
+      </article>
+      <article class="tile">
+        <p class="label">Eight rules, enforced in review</p>
+        <ul class="rules">
+          <li><span>No emoji, gradients or drop shadows — custom glyphs and 1px hairlines instead.</span></li>
+          <li><span>Don't put an icon in a box by default; a coloured glyph and a small-caps label do the job.</span></li>
+          <li><span>Italic serif marks exactly one word per headline.</span></li>
+          <li><span>Lime is rare, and never used for text on paper.</span></li>
+          <li><span>Colour means something: countdowns stay neutral until they need you.</span></li>
+          <li><span>Copyable data is always monospace.</span></li>
+          <li><span>Every text colour clears 4.5:1 contrast in both themes.</span></li>
+          <li><span>Vo, the mascot, appears only at emotional moments: onboarding, empty states, the lock screen.</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="section-head">
+      <div><p class="label">03 · How I'm building it</p><h2>Decide the hard things first.</h2></div>
+      <p class="aside">Budgetify taught me that privacy and polish are cheapest at the start. Vaulty began with the design system and the threat model, and the features came after.</p>
+    </div>
+    <ol class="process" style="list-style:none;padding:0">
+      <li class="tile step">
+        <h3>Market read before pixels</h3>
+        <p>I studied how premium apps brand themselves in 2026 — type as the voice, one committed direction — and listed the tells of generic, templated UI so Vaulty would avoid every one.</p>
+        <p class="proof">A written design rationale</p>
+      </li>
+      <li class="tile step">
+        <h3>Design system first</h3>
+        <p>Tokens, a type scale, a custom glyph set and the eight rules came before any screen. The design doc is the source of truth, and code review checks against it.</p>
+        <p class="proof">8 rules · own icon set · 2 themes</p>
+      </li>
+      <li class="tile step">
+        <h3>Privacy designed in</h3>
+        <p>I mapped what's stored, where, and how it's protected before writing storage code. The privacy policy was written alongside the app, and each permission is asked only at the moment it's needed.</p>
+        <p class="proof">No internet permission in release</p>
+      </li>
+      <li class="tile step">
+        <h3>Native where it matters</h3>
+        <p>One Flutter codebase, but system pieces take each platform's form: iOS gets its own alerts, action sheets, date wheels, stacked sheets, swipe actions and haptics.</p>
+        <p class="proof">Platform-true on iOS and Android</p>
+      </li>
+      <li class="tile step">
+        <h3>Adaptive and accessible</h3>
+        <p>Phones stay portrait. Tablets, foldables and ChromeOS keep a centred 600dp column, and every colour token is contrast-checked in light and dark.</p>
+        <p class="proof">WCAG AA in both themes</p>
+      </li>
+      <li class="tile step">
+        <h3>Store-ready details</h3>
+        <p>Launcher icons rendered from the mascot painter, including iOS 18 dark and tinted variants, a native splash that hands off to a skippable intro, and store privacy labels written to match.</p>
+        <p class="proof">Coming soon to both stores</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="band">
+      <div class="tile"><b>AES-256</b><span>Database and photos</span></div>
+      <div class="tile"><b>600K</b><span>Key-derivation rounds for backups</span></div>
+      <div class="tile"><b>20 s</b><span>Auto-lock in the background</span></div>
+      <div class="tile"><b>0</b><span>Accounts, servers, analytics</span></div>
+      <div class="tile"><b>2</b><span>Native platforms</span></div>
+      <div class="tile"><b>8</b><span>Design rules</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <a class="tile next tile--link" href="../budgetify/">
+      <div><p class="label">Previous case study</p><b>Budgetify</b><p style="margin-top:8px;color:var(--ink2)">Private, offline budgeting — 10K+ installs in its first month, rated 4.6.</p></div>
+      <span class="go" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <footer class="site-footer"><span>© 2026 Jay Keer</span><a href="../">← Back to home</a></footer>
+  </section>
+</main>
+</body>
+</html>

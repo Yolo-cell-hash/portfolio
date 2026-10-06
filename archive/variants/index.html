@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio variants — Jay Keer</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif&family=Space+Grotesk:wght@600&display=swap">
+<style>
+:root { --bg: #F4F4F2; --card: #FFFFFF; --ink: #111113; --ink2: #4D4D55; --muted: #64646C; --line: #E1E1DD; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0E0E10; --card: #17171A; --ink: #F2F2F0; --ink2: #B0B0B8; --muted: #8E8E97; --line: #2A2A2F; color-scheme: dark; } }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', system-ui, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1, h2, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 40px); }
+.label { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+header h1 { margin-top: 12px; font-size: clamp(36px, 5vw, 60px); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+header p { margin-top: 16px; max-width: 620px; font-size: 18px; color: var(--ink2); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 48px; }
+.v { position: relative; display: flex; flex-direction: column; border-radius: 22px; border: 1px solid var(--line); background: var(--card); overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+.v:hover { transform: translateY(-4px); border-color: var(--ink2); }
+.v__body { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 26px; flex: 1; }
+.v h2 { font-size: 26px; font-weight: 600; letter-spacing: -.03em; }
+.v p { color: var(--ink2); font-size: 15px; }
+.v .open { margin-top: auto; padding-top: 10px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+.v .open::after { content: ""; position: absolute; inset: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink2); }
+.thumb { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
+
+/* bento thumb */
+.th-bento { background: #0B0B0C; padding: 18px; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px; }
+.th-bento span { border-radius: 8px; background: #17171A; border: 1px solid #26262B; }
+.th-bento span:nth-child(1) { grid-column: span 4; grid-row: span 2; background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 8px 8px; position: relative; }
+.th-bento span:nth-child(1)::after { content: "I build Flutter apps for connected things."; position: absolute; left: 10px; right: 10px; bottom: 10px; color: #F4F4F2; font-weight: 600; font-size: clamp(11px, 1.3vw, 15px); line-height: 1.05; letter-spacing: -.03em; }
+.th-bento span:nth-child(2) { grid-column: span 2; background: #D4F75B; }
+.th-bento span:nth-child(3) { grid-column: span 2; }
+.th-bento span:nth-child(4), .th-bento span:nth-child(5) { grid-column: span 1; }
+.th-bento span:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+.th-bento span:nth-child(7) { grid-column: span 2; }
+
+/* depth thumb */
+.th-depth { background: radial-gradient(60% 70% at 65% 30%, #1B1D24, #07080B 70%); display: grid; place-items: center; }
+.th-depth .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(255, 122, 51, .35); }
+.th-depth .ring:nth-child(1) { width: 46%; aspect-ratio: 1; }
+.th-depth .ring:nth-child(2) { width: 66%; aspect-ratio: 1; border-color: rgba(255, 122, 51, .18); }
+.th-depth .lock { position: relative; width: 22%; aspect-ratio: 1.15; margin-top: 12%; border-radius: 16%; background: linear-gradient(160deg, #3A3E47, #16181D 60%); box-shadow: 0 18px 30px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .15); }
+.th-depth .lock::before { content: ""; position: absolute; left: 18%; right: 18%; bottom: 92%; height: 70%; border: 7px solid #D9DCE1; border-bottom: 0; border-radius: 999px 999px 0 0; }
+.th-depth .lock::after { content: ""; position: absolute; left: 25%; right: 25%; top: 46%; height: 4px; border-radius: 4px; background: #FF7A33; box-shadow: 0 0 12px #FF7A33; }
+.th-depth b { position: absolute; left: 18px; top: 16px; font-family: 'Space Grotesk', sans-serif; color: #F2F3F5; font-size: clamp(12px, 1.4vw, 16px); letter-spacing: -.02em; }
+.th-depth b em { font-style: normal; color: #FF7A33; }
+
+/* neutral thumb */
+.th-neutral { background: #F2F0EB; padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between; color: #1C1B18; }
+.th-neutral .n-top { display: flex; justify-content: space-between; font-size: 10px; color: #6E6A61; }
+.th-neutral .n-top b { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 14px; color: #1C1B18; }
+.th-neutral h3 { margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(22px, 2.6vw, 32px); line-height: .95; letter-spacing: -.02em; }
+.th-neutral h3 em { color: #55524B; }
+.th-neutral .n-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.th-neutral .n-facts i { height: 18px; border-top: 1px solid #1C1B18; }
+
+.orig { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; padding: 20px 24px; border-radius: 18px; border: 1px dashed var(--line); color: var(--ink2); }
+.orig a { font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .v { transition: none; } .v:hover { transform: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="label">Jay Keer · Portfolio</p>
+    <h1>Pick a direction.</h1>
+    <p>Three directions, all built from your résumé and projects. Every one works on phones, so try resizing the window. Tell me which one you like, or which parts to combine.</p>
+  </header>
+
+  <div class="grid">
+    <article class="v">
+      <div class="thumb th-bento" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="v__body">
+        <p class="label">01 · Modern</p>
+        <h2>Bento</h2>
+        <p>Dark graphite with a lime accent. The first screen is a grid of cards: intro, a live Mumbai clock, impact numbers, Budgetify, your Georgia Tech progress and a scrolling stack.</p>
+        <div class="tags"><span class="tag">Dark</span><span class="tag">Grid of cards</span><span class="tag">Geist</span></div>
+        <a class="open" href="../../">Open Bento (now the live site) →</a>
+      </div>
+    </article>
+    <article class="v">
+      <div class="thumb th-depth" aria-hidden="true"><span class="ring"></span><span class="ring"></span><span class="lock"></span><b>Software that <em>unlocks</em> hardware.</b></div>
+      <div class="v__body">
+        <p class="label">02 · 3D</p>
+        <h2>Depth</h2>
+        <p>A real-time 3D padlock you can unlock, BLE rings pulsing around it, project cards that tilt toward your cursor, and a rotating ring of skills.</p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">Glass</span><span class="tag">Space Grotesk</span></div>
+        <a class="open" href="depth/">Open Depth →</a>
+      </div>
+    </article>
+    <article class="v">
+      <div class="thumb th-neutral" aria-hidden="true"><div class="n-top"><b>Jay Keer</b><span>Work · About · Contact</span></div><h3>Calm software for <em>connected</em> things.</h3><div class="n-facts"><i></i><i></i><i></i></div></div>
+      <div class="v__body">
+        <p class="label">03 · Neutral</p>
+        <h2>Neutral</h2>
+        <p>Warm stone tones and an editorial serif. Work appears as a numbered index with a preview that follows your cursor, and it follows your system theme, with a Light/Dark switch in the header.</p>
+        <div class="tags"><span class="tag">Light / dark</span><span class="tag">Editorial</span><span class="tag">Instrument Serif</span></div>
+        <a class="open" href="neutral/">Open Neutral →</a>
+      </div>
+    </article>
+  </div>
+
+  <p class="orig"><span>The first prototype, “Signal”, is still available for comparison. It hasn't been updated with your résumé yet.</span><a href="../signal/">Open Signal</a></p>
+</div>
+</body>
+</html>
