@@ -331,7 +331,6 @@ code { font-family: var(--mono); font-size: .88em; padding: 1px 6px; border-radi
 
 .patent { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px 40px; align-items: center; padding: clamp(24px, 3.6vw, 48px); }
 .patent h3 { margin-top: 14px; font-size: clamp(30px, 3.4vw, 44px); font-weight: 600; letter-spacing: -.04em; line-height: 1.02; }
-.patent .official { margin-top: 10px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .patent p.desc { margin-top: 18px; max-width: 620px; font-size: 16px; line-height: 1.65; color: var(--ink2); }
 .patent dl { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .patent dl div { padding: 12px 14px; border-radius: 14px; background: var(--tile2); border: 1px solid var(--line); }
